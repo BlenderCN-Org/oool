@@ -1,5 +1,5 @@
-SRCS = main
-TARGET = a.out
+SRCS = oool
+TARGET = oool
 
 CXXFLAGS += -std=c++11 -Wall -Wextra -ggdb -pipe $(shell pkg-config --cflags-only-I gl glu)
 LDFLAGS += -lglut $(shell pkg-config --libs gl glu)
