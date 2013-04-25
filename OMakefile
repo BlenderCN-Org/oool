@@ -1,0 +1,11 @@
+SRCS = main
+TARGET = a.out
+
+CXXFLAGS += -std=c++11 -Wall -Wextra -ggdb -pipe $(shell pkg-config --cflags-only-I gl glu)
+LDFLAGS += -lglut $(shell pkg-config --libs gl glu)
+
+.DEFAULT: $(StaticCXXLibrary $(TARGET),$(SRCS))
+
+.PHONY: clean
+clean:
+	rm -rf $(filter-proper-targets $(ls R, .))
