@@ -7,11 +7,13 @@
 */
 #pragma once
 #include <fstream>
+#include <iostream>
 #include <string>
 #include <vector>
+
 namespace oool
 {
-	std::vector<std::string> readLinePly(std::string filename);
-	std::vector<std::string> commentDelete(std::vector<std::string> a);
+	std::vector<std::string> readLine(const std::string text);//文字列を受け取って文字列のリストに
+	std::vector<std::string> commentAndWhiteDelete(std::vector<std::string> a);//文字列のリストからコメントと空行を削除する
 } // oool
 

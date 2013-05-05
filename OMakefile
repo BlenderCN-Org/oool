@@ -1,10 +1,14 @@
-SRCS = oool
-TARGET = oool
-
 CXXFLAGS += -std=c++11 -Wall -Wextra -ggdb -pipe $(shell pkg-config --cflags-only-I gl glu)
 LDFLAGS += -lglut $(shell pkg-config --libs gl glu)
 
-.DEFAULT: $(StaticCXXLibrary $(TARGET),$(SRCS))
+# SRCS = oool
+# TARGET = oool
+# # .DEFAULT: $(StaticCXXLibrary $(TARGET),$(SRCS))
+
+SRCS = oool PlyReadLine
+TARGET = a.out
+.DEFAULT: $(CXXProgram $(TARGET),$(SRCS))
+
 
 .PHONY: clean
 clean:

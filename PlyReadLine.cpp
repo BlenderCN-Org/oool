@@ -6,23 +6,32 @@
   time:Thu Apr 25 14:38:36 2013
 */
 #include "PlyReadLine.hpp"
+using namespace std;
 
 namespace oool
 {
-	std::vector<std::string> readLinePly(std::string filename)
+	vector<string> readLine(const string text)
 	{
-		std::ifstream ifs(filename,ios::in);
-		std::vector<std::string> line_buf;
-		for(;!ifs.eof();)
+		vector<string> file_line;
+		string::size_type r = 0;
+		for(unsigned int l = 0;true;l = ++r)//無限ループのため注意
 		{
-			std::string buf;
-			ifs.getline(ifs,buf);
-			line_buf.push_back(buf);
+			r = text.find("\n", l);
+			file_line.push_back(text.substr(l,r-l));//行頭から改行までコピー
+			if(r == string::npos)//改行が無くなったらbreakする
+			{
+				break;
+			}
 		}
-		return line_buf;
+		return file_line;
 	}
-	std::vector<std::string> commentDelete(std::array a)
+	vector<string> commentAndWhiteDelete(vector<string> a)
 	{
+		// for(auto i:a)
+		// {
+			
+		// }
+		return a;
 	}
 } // oool
 
