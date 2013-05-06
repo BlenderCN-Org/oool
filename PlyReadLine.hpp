@@ -10,10 +10,11 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <boost/regex.hpp>
 
 namespace oool
 {
-	std::vector<std::string> readLine(const std::string text);//文字列を受け取って文字列のリストに
-	std::vector<std::string> commentAndWhiteDelete(std::vector<std::string> a);//文字列のリストからコメントと空行を削除する
+	std::vector<std::string> readLine(const std::string& text);//文字列を受け取って文字列のリストに
+	std::vector<std::string> commentAndWhiteDelete(const std::vector<std::string>& b);//文字列のリストからコメントと空行を削除する
 } // oool
 

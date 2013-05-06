@@ -5,7 +5,7 @@ LDFLAGS += -lglut $(shell pkg-config --libs gl glu)
 # TARGET = oool
 # # .DEFAULT: $(StaticCXXLibrary $(TARGET),$(SRCS))
 
-SRCS = oool PlyReadLine
+SRCS = test PlyReadLine
 TARGET = a.out
 .DEFAULT: $(CXXProgram $(TARGET),$(SRCS))
 

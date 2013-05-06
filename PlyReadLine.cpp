@@ -7,10 +7,11 @@
 */
 #include "PlyReadLine.hpp"
 using namespace std;
+using namespace boost;
 
 namespace oool
 {
-	vector<string> readLine(const string text)
+	vector<string> readLine(const string& text)
 	{
 		vector<string> file_line;
 		string::size_type r = 0;
@@ -25,13 +26,22 @@ namespace oool
 		}
 		return file_line;
 	}
-	vector<string> commentAndWhiteDelete(vector<string> a)
+
+	//定数はグローバルでもstaticでも良いというのが自分のルール,ただし名前はちゃんとつけよう
+	const regex whiteline("^\\s*$");//空行
+	const regex commentline("^comment");//コメント行
+	vector<string> commentAndWhiteDelete(const vector<string>& b)
 	{
-		// for(auto i:a)
-		// {
-			
-		// }
+		vector<string> a = b;
+		smatch m;//いらん,遅延評価欲しい.
+		for(auto i = a.begin();i != a.end();++i)
+		{
+			if(regex_match(*i,m,whiteline)||regex_search(*i,m,commentline))
+			{
+				i = a.erase(i);
+				--i;
+			}
+		}
 		return a;
 	}
 } // oool
-
