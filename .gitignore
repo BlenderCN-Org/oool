@@ -11,3 +11,14 @@
 *.lai
 *.la
 *.a
+
+# Compiled File
+a.out
+
+# Pre compile
+*.gch
+
+# OMake cache data
+.omakedb
+.omakedb.lock
+*.omc

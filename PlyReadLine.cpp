@@ -29,14 +29,14 @@ namespace oool
 
 	//定数はグローバルでもstaticでも良いというのが自分のルール,ただし名前はちゃんとつけよう
 	const regex whiteline("^\\s*$");//空行
-	const regex commentline("^comment");//コメント行
+	const regex commentline("^comment.*");//コメント行
 	vector<string> commentAndWhiteDelete(const vector<string>& b)
 	{
 		vector<string> a = b;
 		smatch m;//いらん,遅延評価欲しい.
 		for(auto i = a.begin();i != a.end();++i)
 		{
-			if(regex_match(*i,m,whiteline)||regex_search(*i,m,commentline))
+			if(regex_match(*i,m,whiteline)||regex_match(*i,m,commentline))
 			{
 				i = a.erase(i);
 				--i;
