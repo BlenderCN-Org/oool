@@ -1,14 +1,17 @@
-CXXFLAGS += -std=c++11 -Wall -Wextra -ggdb -pipe $(shell pkg-config --cflags-only-I gl glu)
+#CXXFLAGS += -std=c++11 -Wall -Wextra -ggdb -pipe $(shell pkg-config --cflags-only-I gl glu)
+CXXFLAGS += -std=c++11 -Wall -Wextra -pipe $(shell pkg-config --cflags-only-I gl glu)
 LDFLAGS += -lglut -lboost_regex $(shell pkg-config --libs gl glu)
 
-# SRCS = oool
-# TARGET = oool
-# # .DEFAULT: $(StaticCXXLibrary $(TARGET),$(SRCS))
+# サブディレクトリ
+.SUBDIRS: oool
 
-SRCS = test PlyReadLine
-TARGET = a.out
-.DEFAULT: $(CXXProgram $(TARGET),$(SRCS))
+#OMakeのやり方など知るかもう
+SRCS =$(shell ./findcpp.sh)
 
+.SCANNER: %.o: %.cpp
+	$(CXX) $(INCLUDE) -MM $<
+
+.DEFAULT: $(CXXProgram a.out,$(SRCS))
 
 .PHONY: clean
 clean:

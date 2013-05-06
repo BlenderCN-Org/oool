@@ -14,7 +14,8 @@
 
 namespace oool
 {
+	std::string readfile(const std::string& filename);
 	std::vector<std::string> readLine(const std::string& text);//文字列を受け取って文字列のリストに
-	std::vector<std::string> commentAndWhiteDelete(const std::vector<std::string>& b);//文字列のリストからコメントと空行を削除する
+	std::vector<std::string> commentAndWhiteDelete(const std::vector<std::string>& input);//文字列のリストからコメントと空行を削除する
 } // oool
 
