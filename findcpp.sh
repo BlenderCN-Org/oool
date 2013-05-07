@@ -1,2 +1,2 @@
 #!/bin/sh
-find . -name '*.cpp'|sed -e 's/\.cpp$//g'|xargs
+find . -name '*.cpp' -and -not -name "*flymake*"|sed -e 's/\.cpp$//g'|xargs

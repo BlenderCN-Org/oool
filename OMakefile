@@ -8,9 +8,6 @@ LDFLAGS += -lglut -lboost_regex $(shell pkg-config --libs gl glu)
 #OMakeのやり方など知るかもう
 SRCS =$(shell ./findcpp.sh)
 
-.SCANNER: %.o: %.cpp
-	$(CXX) $(INCLUDE) -MM $<
-
 .DEFAULT: $(CXXProgram a.out,$(SRCS))
 
 .PHONY: clean
