@@ -57,7 +57,7 @@ namespace oool
 		}
 		
 		const std::string END_HEADER("end_header");
-		oool::ply::PlyElement divideHeadData(const std::vector<std::string>& ply)
+		oool::ply::PlyTags divideHeadData(const std::vector<std::string>& ply)
 		{
 			auto state = find(ply.begin(),ply.end(),END_HEADER);
 			if(state == ply.end())
@@ -73,7 +73,7 @@ namespace oool
 			std::copy(ply.begin()	,state		,std::back_inserter(head));
 			std::vector<std::string> data;
 			std::copy(state		,ply.end()	,std::back_inserter(data));
-			return PlyElement(head,data);//うーん効率悪い
+			return PlyTags(head,data);//うーん効率悪い
 		}
 
 		const boost::regex ASCII	("^format ascii.*");
@@ -113,6 +113,11 @@ namespace oool
 				}
 			}
 			throw std::runtime_error("oool can't found vertex num");
+		}
+
+		int propertyParse(const std::vector<std::string>& input)
+		{
+			return 0;
 		}
 	}
 } // oool

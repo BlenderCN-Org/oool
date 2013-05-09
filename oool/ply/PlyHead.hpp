@@ -28,6 +28,7 @@ namespace oool
 
 			Format format_;
 			int vertex_num_;
+			int property_;
 		};
 	}
 } // oool

@@ -14,7 +14,7 @@ namespace oool
 {
 	namespace ply
 	{
-		class PlyElement;
+		class PlyTags;
 		class PlyModel:public oool::Model
 		{
 		public:
@@ -22,7 +22,7 @@ namespace oool
 			virtual ~PlyModel();//Destructor
 		private:
 			const std::string filename_;
-			std::unique_ptr<PlyElement> element_;
+			std::unique_ptr<PlyTags> element_;
 		};
 	}
 } // oool

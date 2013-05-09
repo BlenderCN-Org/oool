@@ -1,5 +1,5 @@
 /*
-  PlyElement.hpp - 属性をまとめる.小クラス主義で行こう.
+  PlyTags.hpp - 属性をまとめる.小クラス主義で行こう.
 
   author:ncaq
   mail:nyrigadake38@gmail.com
@@ -14,11 +14,11 @@ namespace oool
 {
 	namespace ply
 	{
-		class PlyElement
+		class PlyTags
 		{
 		public:
-			PlyElement(const std::vector<std::string>& head,const std::vector<std::string>& data);//Default constructor
-			~PlyElement();//Destructor
+			PlyTags(const std::vector<std::string>& head,const std::vector<std::string>& data);//Default constructor
+			~PlyTags();//Destructor
 		private:
 			PlyHead head_;
 			PlyData data_;

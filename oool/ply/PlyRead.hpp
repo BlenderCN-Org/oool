@@ -14,7 +14,7 @@
 #include <boost/regex.hpp>
 #include <boost/lexical_cast.hpp>
 #include "Format.hpp"
-#include "PlyElement.hpp"
+#include "PlyTags.hpp"
 
 namespace oool
 {
@@ -23,9 +23,10 @@ namespace oool
 		std::string readfile(const std::string& filename);//読み込んで文字列出すだけ
 		std::vector<std::string> readLine(const std::string& text);//文字列を受け取って文字列のリストに
 		std::vector<std::string> commentAndWhiteDelete(const std::vector<std::string>& input);//文字列のリストからコメントと空行を削除する
-		PlyElement divideHeadData(const std::vector<std::string>& ply);//ヘッダとデータを分ける
+		PlyTags divideHeadData(const std::vector<std::string>& ply);//ヘッダとデータを分ける
 		oool::ply::Format formatParse(const std::vector<std::string>& input);
 		int vertexParse(const std::vector<std::string>& input);
+		int propertyParse(const std::vector<std::string>& input);
 	}
 } // oool
 
