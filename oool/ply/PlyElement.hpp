@@ -8,21 +8,20 @@
 #pragma once
 #include <vector>
 #include <string>
-#include <memory>
+#include "PlyHead.hpp"
+#include "PlyData.hpp"
 namespace oool
 {
 	namespace ply
 	{
-		class PlyHead;
-		class PlyData;
 		class PlyElement
 		{
 		public:
 			PlyElement(const std::vector<std::string>& head,const std::vector<std::string>& data);//Default constructor
 			~PlyElement();//Destructor
 		private:
-			std::unique_ptr<PlyHead> head_;
-			std::unique_ptr<PlyData> data_;
+			PlyHead head_;
+			PlyData data_;
 		};
 	}
 } // oool

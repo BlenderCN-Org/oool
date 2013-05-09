@@ -15,7 +15,11 @@ namespace oool
 		{
 			std::ifstream ifs(filename);
 			std::string data;
-			ifs >> data;
+			std::string buf;
+			while(std::getline(ifs,buf))
+			{
+				data += buf += "\n";//や っ つ け
+			}
 			return data;
 		}
 
@@ -36,14 +40,14 @@ namespace oool
 		}
 
 		//定数はグローバルでもstaticでも良いというのが自分のルール,ただし名前はちゃんとつけよう
-		const boost::regex whiteline("^\\s*$");//空行
-		const boost::regex commentline("^comment.*");//コメント行
+		const boost::regex WHITELINE("^\\s*$");//空行
+		const boost::regex COMMENTLINE("^comment.*");//コメント行
 		std::vector<std::string> commentAndWhiteDelete(const std::vector<std::string>& input)
 		{
 			std::vector<std::string> a = input;//出来るだけ函数型スタイルにする.効率が多少悪くなろうとも
 			for(auto i = a.begin();i != a.end();++i)
 			{
-				if(boost::regex_match(*i,whiteline)||boost::regex_match(*i,commentline))
+				if(boost::regex_match(*i,WHITELINE)||boost::regex_match(*i,COMMENTLINE))
 				{
 					i = a.erase(i);
 					--i;
@@ -52,19 +56,63 @@ namespace oool
 			return a;
 		}
 		
-		const std::string end_header("end_header");
+		const std::string END_HEADER("end_header");
 		oool::ply::PlyElement divideHeadData(const std::vector<std::string>& ply)
 		{
-			auto state = find(ply.begin(),ply.end(),end_header);
+			auto state = find(ply.begin(),ply.end(),END_HEADER);
 			if(state == ply.end())
 			{
-				throw std::runtime_error("Is ply file as ply file? This program can't found end_header");
+				std::cerr << "error data" << std::endl;
+				for(auto i:ply)
+				{
+					std::cerr << i << std::endl;
+				}
+				throw std::runtime_error("oool error.Is ply file as ply file?This program can't found end_header.");
 			}
 			std::vector<std::string> head;
 			std::copy(ply.begin()	,state		,std::back_inserter(head));
 			std::vector<std::string> data;
 			std::copy(state		,ply.end()	,std::back_inserter(data));
-			return PlyElement(head,data);
+			return PlyElement(head,data);//うーん効率悪い
+		}
+
+		const boost::regex ASCII	("^format ascii.*");
+		const boost::regex LITTLE	("^format binary_little_endian.*");
+		const boost::regex BIG		("^format binary_big_endian.*");
+		oool::ply::Format formatParse(const std::vector<std::string>& input)
+		{
+			for(auto i:input)
+			{
+				if(boost::regex_match(i,ASCII))
+				{
+					return oool::ply::Format::ASCII;
+				}
+				if(boost::regex_match(i,LITTLE))
+				{
+					return oool::ply::Format::LITTLE;
+				}
+				if(boost::regex_match(i,BIG))
+				{
+					return oool::ply::Format::BIG;
+				}
+			}
+			throw std::runtime_error("oool error unknown format.");
+		}
+
+		const boost::regex VERTEX_NUM_POS("^element vertex ");
+		int vertexParse(const std::vector<std::string>& input)
+		{
+			boost::smatch m;
+			for(auto i:input)
+			{
+				if(boost::regex_search(i,m,VERTEX_NUM_POS))
+				{
+					int rl = m.position() + m.length();
+					std::string n = i.substr(rl,i.size());
+					return boost::lexical_cast<int>(n);
+				}
+			}
+			throw std::runtime_error("oool can't found vertex num");
 		}
 	}
 } // oool

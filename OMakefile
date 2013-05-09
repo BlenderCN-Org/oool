@@ -1,5 +1,5 @@
-#CXXFLAGS += -std=c++11 -Wall -Wextra -ggdb -pipe $(shell pkg-config --cflags-only-I gl glu)
-CXXFLAGS += -std=c++11 -Wall -Wextra -pipe $(shell pkg-config --cflags-only-I gl glu)
+CXXFLAGS += -std=c++11 -Wall -Wextra -ggdb -pipe $(shell pkg-config --cflags-only-I gl glu)
+#CXXFLAGS += -std=c++11 -Wall -Wextra -pipe $(shell pkg-config --cflags-only-I gl glu)
 LDFLAGS += -lglut -lboost_regex $(shell pkg-config --libs gl glu)
 
 # サブディレクトリ
