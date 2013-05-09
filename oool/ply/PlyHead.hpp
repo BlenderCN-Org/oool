@@ -12,17 +12,12 @@
 #include <boost/regex.hpp>
 #include <boost/lexical_cast.hpp>
 #include <exception>
+#include "Format.hpp"
 
 namespace oool
 {
 	namespace ply
 	{
-		enum class Format
-		{
-			ASCII = 0,
-				LITTLE,
-				BIG
-				};
 		class PlyHead
 		{
 		public:

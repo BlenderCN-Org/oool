@@ -13,8 +13,8 @@
 #include <algorithm>
 #include <boost/regex.hpp>
 #include <boost/lexical_cast.hpp>
+#include "Format.hpp"
 #include "PlyElement.hpp"
-#include "PlyHead.hpp"
 
 namespace oool
 {
