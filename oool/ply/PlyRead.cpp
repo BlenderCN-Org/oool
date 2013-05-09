@@ -76,6 +76,20 @@ namespace oool
 			return PlyTags(head,data);//うーん効率悪い
 		}
 
+		const boost::regex PROPERTY("^property.*");
+		std::vector<std::string> killProperty(const std::vector<std::string>& input)
+		{
+			std::vector<std::string> output;
+			for(auto i:input)
+			{
+				if(boost::regex_match(i,PROPERTY))
+				{
+					output.push_back(i);
+				}
+			}
+			return output;
+		}
+
 		const boost::regex ASCII	("^format ascii.*");
 		const boost::regex LITTLE	("^format binary_little_endian.*");
 		const boost::regex BIG		("^format binary_big_endian.*");
@@ -115,9 +129,24 @@ namespace oool
 			throw std::runtime_error("oool can't found vertex num");
 		}
 
-		int propertyParse(const std::vector<std::string>& input)
+		const boost::regex FLOAT("^property float$");
+		const boost::regex UCHAR("^property uchar$");
+		const boost::regex INT  ("^property int$");
+		PropertyDataType stringToDataType(const std::string& input)
 		{
-			return 0;
+			if(boost::regex_match(input,FLOAT))
+			{
+				return PropertyDataType::FLOAT;
+			}
+			if(boost::regex_match(input,UCHAR))
+			{
+				return PropertyDataType::UCHAR;
+			}
+			if(boost::regex_match(input,INT))
+			{
+				return PropertyDataType::INT;
+			}
+			throw std::runtime_error("oool this ply file not support!");
 		}
 	}
 } // oool

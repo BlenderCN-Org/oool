@@ -13,7 +13,6 @@
 #include <boost/lexical_cast.hpp>
 #include <exception>
 #include "Format.hpp"
-
 namespace oool
 {
 	namespace ply
@@ -27,8 +26,7 @@ namespace oool
 			void parse(const std::vector<std::string>& input);
 
 			Format format_;
-			int vertex_num_;
-			int property_;
+			//std::vector<Element> elements;
 		};
 	}
 } // oool

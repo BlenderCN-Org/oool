@@ -39,9 +39,7 @@ BOOST_AUTO_TEST_CASE(commentAndWhiteDelete)
 
 BOOST_AUTO_TEST_CASE(divideHeadData)
 {
-	auto v = oool::ply::readfile("./testmodel/cube.ply");
-	auto l = oool::ply::readLine(v);
-	oool::ply::PlyTags e(oool::ply::divideHeadData(l));
+	oool::ply::PlyTags e(oool::ply::divideHeadData(oool::ply::readLine(oool::ply::readfile("./testmodel/cube.ply"))));
 }
 
 BOOST_AUTO_TEST_CASE(formatParse)
