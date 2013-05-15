@@ -1,5 +1,6 @@
 /*
-  Element.hpp - vertexとかの基底クラス インターフェイス
+  Element.hpp - vertexとかの基底クラス
+  基底クラスであってインターフェイスではない(重要)
 
   author:ncaq
   mail:nyrigadake38@gmail.com
@@ -8,6 +9,8 @@
 #pragma once
 #include <vector>
 #include <string>
+#include "PlyRead.hpp"
+#include "Property.hpp"
 namespace oool
 {
 	namespace ply
@@ -15,10 +18,14 @@ namespace oool
 		class Element
 		{
 		public:
-			virtual ~Element()=0;//Destructor
+			Element(const std::vector<std::string>& input);
+			virtual ~Element();//Destructor
 
-			virtual int numCount()const=0;//"vertex 21" -> "21"
-			virtual int propertyCount()const=0;
+			virtual int numCount()const;//"vertex 21" -> "21"
+			virtual int propertyCount()const;//propertyの数
+		private:
+			const int num_;
+			std::vector<Property> property_;
 		};
 	}
 } // oool

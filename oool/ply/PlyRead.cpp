@@ -42,7 +42,7 @@ namespace oool
 		//定数はグローバルでもstaticでも良いというのが自分のルール,ただし名前はちゃんとつけよう
 		const boost::regex WHITELINE("^\\s*$");//空行
 		const boost::regex COMMENTLINE("^comment.*");//コメント行
-		std::vector<std::string> commentAndWhiteDelete(const std::vector<std::string>& input)
+		std::vector<std::string> deleteCommentAndWhite(const std::vector<std::string>& input)
 		{
 			std::vector<std::string> a = input;//出来るだけ函数型スタイルにする.効率が多少悪くなろうとも
 			for(auto i = a.begin();i != a.end();++i)
@@ -76,6 +76,30 @@ namespace oool
 			return PlyTags(head,data);//うーん効率悪い
 		}
 
+		const boost::regex ELEMENT("^element.*");
+		std::vector<std::vector<std::string>> killElements(const std::vector<std::string>& input)
+		{
+			std::vector<std::vector<std::string>> output;
+			auto lpoint = input.begin();
+			auto rpoint = input.begin();
+			for(auto it=input.begin();it != input.end();++it)
+			{
+				if(boost::regex_match(*it,ELEMENT))
+				{
+					if(lpoint == rpoint)
+					{
+						lpoint = it;
+					}
+					else
+					{
+						output.push_back(std::vector<std::string>(lpoint,--rpoint));
+						lpoint = rpoint;
+					}
+				}
+			}
+			return output;
+		}
+		
 		const boost::regex PROPERTY("^property.*");
 		std::vector<std::string> killProperty(const std::vector<std::string>& input)
 		{
@@ -88,45 +112,6 @@ namespace oool
 				}
 			}
 			return output;
-		}
-
-		const boost::regex ASCII	("^format ascii.*");
-		const boost::regex LITTLE	("^format binary_little_endian.*");
-		const boost::regex BIG		("^format binary_big_endian.*");
-		oool::ply::Format formatParse(const std::vector<std::string>& input)
-		{
-			for(auto i:input)
-			{
-				if(boost::regex_match(i,ASCII))
-				{
-					return oool::ply::Format::ASCII;
-				}
-				if(boost::regex_match(i,LITTLE))
-				{
-					return oool::ply::Format::LITTLE;
-				}
-				if(boost::regex_match(i,BIG))
-				{
-					return oool::ply::Format::BIG;
-				}
-			}
-			throw std::runtime_error("oool error unknown format.");
-		}
-
-		const boost::regex VERTEX_NUM_POS("^element vertex ");
-		int vertexParse(const std::vector<std::string>& input)
-		{
-			boost::smatch m;
-			for(auto i:input)
-			{
-				if(boost::regex_search(i,m,VERTEX_NUM_POS))
-				{
-					int rl = m.position() + m.length();
-					std::string n = i.substr(rl,i.size());
-					return boost::lexical_cast<int>(n);
-				}
-			}
-			throw std::runtime_error("oool can't found vertex num");
 		}
 
 		const boost::regex FLOAT("^property float$");
@@ -147,6 +132,55 @@ namespace oool
 				return PropertyDataType::INT;
 			}
 			throw std::runtime_error("oool this ply file not support!");
+		}
+
+		const boost::regex ASCII	("^format ascii.*");
+		const boost::regex LITTLE	("^format binary_little_endian.*");
+		const boost::regex BIG		("^format binary_big_endian.*");
+		Format parseFormat(const std::vector<std::string>& input)
+		{
+			for(auto i:input)
+			{
+				if(boost::regex_match(i,ASCII))
+				{
+					return oool::ply::Format::ASCII;
+				}
+				if(boost::regex_match(i,LITTLE))
+				{
+					return oool::ply::Format::LITTLE;
+				}
+				if(boost::regex_match(i,BIG))
+				{
+					return oool::ply::Format::BIG;
+				}
+			}
+			throw std::runtime_error("oool error unknown format.");
+		}
+
+		const boost::regex NUM_POS("^element \\w+ ");
+		int parseNum(const std::vector<std::string>& input)
+		{
+			boost::smatch m;
+			for(auto i:input)
+			{
+				if(boost::regex_search(i,m,NUM_POS))
+				{
+					int left = m.position() + m.length();
+					std::string n = i.substr(left,i.size());
+					return boost::lexical_cast<int>(n);
+				}
+			}
+			throw std::runtime_error("oool can't found num");
+		}
+
+		const boost::regex NAME("^\\w+ \\w+ ");
+		std::string parseName(const std::string& input)
+		{
+			boost::smatch m;
+			boost::regex_search(input,m,NAME);
+			int left = m.position() + m.length();
+			std::string n = input.substr(left,input.size());
+			return n;
 		}
 	}
 } // oool

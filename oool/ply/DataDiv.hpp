@@ -6,6 +6,9 @@
   time:Thu May  9 13:47:44 2013
 */
 #pragma once
+#include <vector>
+#include <memory>
+#include "Element.hpp"
 namespace oool
 {
 	namespace ply
@@ -13,8 +16,10 @@ namespace oool
 		class DataDiv
 		{
 		public:
-			DataDiv();//Default constructor
+			DataDiv(const std::vector<std::string>& input);//Default constructor
 			~DataDiv();//Destructor
+		private:
+			std::vector<std::unique_ptr<Element>> elements;//多態性
 		};
 	}
 } // oool

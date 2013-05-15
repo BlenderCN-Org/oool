@@ -3,7 +3,7 @@ CXXFLAGS += -std=c++11 -Wall -Wextra -ggdb -pipe $(shell pkg-config --cflags-onl
 LDFLAGS += -lglut -lboost_regex $(shell pkg-config --libs gl glu)
 
 # サブディレクトリ
-.SUBDIRS: oool
+.SUBDIRS: oool test
 
 #OMakeのやり方など知るかもう
 SRCS =$(shell ./findcpp.sh)

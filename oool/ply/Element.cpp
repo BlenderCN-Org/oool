@@ -1,5 +1,5 @@
 /*
-  Element.cpp - インターフェイスなので殆ど書かれていません
+  Element.cpp -
 
   author:ncaq
   mail:nyrigadake38@gmail.com
@@ -10,8 +10,23 @@ namespace oool
 {
 	namespace ply
 	{
+		Element::Element(const std::vector<std::string>& input)
+			:num_(parseNum(input))
+		{
+		}
+		
 		Element::~Element()
 		{
+		}
+
+		int Element::numCount()const
+		{
+			return this->num_;
+		}
+		
+		int Element::propertyCount()const
+		{
+			return this->property_.size();
 		}
 	}
 } // oool

@@ -20,8 +20,10 @@ namespace oool
 			Property(const std::string& input);
 			virtual ~Property();//Destructor
 			virtual PropertyDataType getPropertyDataType()const;
+			virtual std::string getName()const;
 		private:
 			const PropertyDataType type_;
+			const std::string name_;
 		};
 	}
 } // oool

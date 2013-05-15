@@ -23,7 +23,7 @@ namespace oool
 
 		void PlyHead::parse(const std::vector<std::string>& input)
 		{
-			this->format_ = formatParse(input);
+			this->format_ = parseFormat(input);
 		}
 	}
 } // oool
