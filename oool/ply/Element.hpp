@@ -24,6 +24,7 @@ namespace oool
 			virtual int numCount()const;//"vertex 21" -> "21"
 			virtual int propertyCount()const;//propertyの数
 		private:
+			
 			const int num_;
 			std::vector<Property> property_;
 		};

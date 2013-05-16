@@ -1,10 +1,11 @@
 #include "FactoryElement.hpp"
+#include "Element.hpp"
 
 namespace oool
 {
 	namespace ply
 	{
-		Element* makeElement(std::vector<std::string>& input)
+		void makeElementsVector(std::vector<Element>& change_var)
 		{
 			
 		}

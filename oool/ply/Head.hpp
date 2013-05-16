@@ -14,6 +14,7 @@
 #include <exception>
 #include "Format.hpp"
 #include "Parse.hpp"
+#include "Element.hpp"
 namespace oool
 {
 	namespace ply
@@ -27,7 +28,8 @@ namespace oool
 			void parse(const std::vector<std::string>& input);
 
 			Format format_;
-			//std::vector<Element> elements;
+			//std::vector<std::unique_ptr<Element>> elements;
+			std::vector<Element> elements;
 		};
 	}
 } // oool
