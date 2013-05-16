@@ -6,18 +6,22 @@
   time:Tue May  7 13:39:04 2013
 */
 #include "PlyModel.hpp"
-#include "PlyTags.hpp"
 namespace oool
 {
 	namespace ply
 	{
 		PlyModel::PlyModel(const std::string& filename)
-			:filename_(filename)
+			:filename_(filename),plytags_(divideHeadData(readLine(readFile(filename))))
 		{
 		}
 
 		PlyModel::~PlyModel()
 		{
+		}
+
+		void PlyModel::draw()
+		{
+			//TODO
 		}
 	}
 } // oool

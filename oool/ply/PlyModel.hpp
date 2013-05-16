@@ -9,20 +9,22 @@
 #include "../Model.hpp"
 #include <string>
 #include <memory>
-
+#include "PlyTags.hpp"
+#include "PlyRead.hpp"
 namespace oool
 {
 	namespace ply
 	{
-		class PlyTags;
 		class PlyModel:public oool::Model
 		{
 		public:
 			PlyModel(const std::string& filename);//Default constructor
 			virtual ~PlyModel();//Destructor
+
+			virtual void draw();
 		private:
 			const std::string filename_;
-			std::unique_ptr<PlyTags> element_;
+			PlyTags plytags_;
 		};
 	}
 } // oool

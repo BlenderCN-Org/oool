@@ -11,7 +11,7 @@ namespace oool
 {
 	namespace ply
 	{
-		std::string readfile(const std::string& filename)
+		std::string readFile(const std::string& filename)
 		{
 			std::ifstream ifs(filename);
 			std::string data;

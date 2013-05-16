@@ -7,9 +7,9 @@
 
 BOOST_AUTO_TEST_SUITE(oool_PlyRead_test)
 
-BOOST_AUTO_TEST_CASE(readfile)
+BOOST_AUTO_TEST_CASE(readFile)
 {
-	auto text = oool::ply::readfile("./testmodel/cube.ply");
+	auto text = oool::ply::readFile("./testmodel/cube.ply");
 }
 
 BOOST_AUTO_TEST_CASE(readline)
@@ -29,22 +29,19 @@ BOOST_AUTO_TEST_CASE(deleteCommentAndWhite)
 	v.push_back(" 	");//空白とタブ
 	v.push_back("comment");//コメント
 	v.push_back("comment blender よくわからん");//コメント
-
 	BOOST_CHECK(!v.empty());
-
 	v = oool::ply::deleteCommentAndWhite(v);
-
 	BOOST_CHECK(v.empty());//当然全て削除されているはず
 }
 
 BOOST_AUTO_TEST_CASE(divideHeadData)
 {
-	oool::ply::PlyTags e(oool::ply::divideHeadData(oool::ply::readLine(oool::ply::readfile("./testmodel/cube.ply"))));
+	oool::ply::PlyTags e(oool::ply::divideHeadData(oool::ply::readLine(oool::ply::readFile("./testmodel/cube.ply"))));
 }
 
 BOOST_AUTO_TEST_CASE(parseFormat)
 {
-	auto v = oool::ply::readfile("./testmodel/cube.ply");
+	auto v = oool::ply::readFile("./testmodel/cube.ply");
 	auto l = oool::ply::readLine(v);
 	auto ascii = oool::ply::parseFormat(l);
 	BOOST_CHECK_EQUAL(static_cast<int>(ascii),static_cast<int>(oool::ply::Format::ASCII));

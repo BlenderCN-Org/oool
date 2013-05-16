@@ -13,5 +13,7 @@ namespace oool
 	{
 	public:
 		virtual ~Model()=0;//Destructor
+
+		virtual void draw()=0;
 	};
 } // oool

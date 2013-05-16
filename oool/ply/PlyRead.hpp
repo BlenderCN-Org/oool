@@ -22,7 +22,7 @@ namespace oool
 {
 	namespace ply
 	{
-		std::string readfile(const std::string& filename);//読み込んで文字列出すだけ
+		std::string readFile(const std::string& filename);//読み込んで文字列出すだけ
 		std::vector<std::string> readLine(const std::string& text);//文字列を受け取って文字列のリストに
 		std::vector<std::string> deleteCommentAndWhite(const std::vector<std::string>& input);//文字列のリストからコメントと空行を削除する
 		
