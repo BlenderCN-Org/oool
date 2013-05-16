@@ -1,5 +1,5 @@
 /*
-  PlyData.hpp -
+  Data.hpp -
 
   author:ncaq
   mail:nyrigadake38@gmail.com
@@ -12,11 +12,11 @@ namespace oool
 {
 	namespace ply
 	{
-		class PlyData
+		class Data
 		{
 		public:
-			PlyData(const std::vector<std::string>& input);//Default constructor
-			~PlyData();//Destructor
+			Data(const std::vector<std::string>& input);//Default constructor
+			~Data();//Destructor
 		};
 	}
 } // oool

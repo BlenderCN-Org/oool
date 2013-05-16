@@ -1,5 +1,5 @@
 /*
-  PlyModel.hpp - 
+  Model.hpp - 
 
   author:ncaq
   mail:nyrigadake38@gmail.com
@@ -9,22 +9,23 @@
 #include "../Model.hpp"
 #include <string>
 #include <memory>
-#include "PlyTags.hpp"
-#include "PlyRead.hpp"
+#include "Tags.hpp"
+#include "Read.hpp"
+#include "Kill.hpp"
 namespace oool
 {
 	namespace ply
 	{
-		class PlyModel:public oool::Model
+		class Model:public oool::Model
 		{
 		public:
-			PlyModel(const std::string& filename);//Default constructor
-			virtual ~PlyModel();//Destructor
+			Model(const std::string& filename);//Default constructor
+			virtual ~Model();//Destructor
 
 			virtual void draw();
 		private:
 			const std::string filename_;
-			PlyTags plytags_;
+			Tags plytags_;
 		};
 	}
 } // oool

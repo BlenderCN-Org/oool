@@ -2,10 +2,12 @@
 #pragma once
 #include <vector>
 #include <string>
-#include "PlyRead.hpp"
+#include "Read.hpp"
 
 #include "Element.hpp"
 #include "Vertex.hpp"
+
+//多態性が必要になった時にいろいろやります
 
 namespace oool
 {

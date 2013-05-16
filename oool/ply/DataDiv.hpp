@@ -9,6 +9,7 @@
 #include <vector>
 #include <memory>
 #include "Element.hpp"
+#include "Kill.hpp"
 namespace oool
 {
 	namespace ply

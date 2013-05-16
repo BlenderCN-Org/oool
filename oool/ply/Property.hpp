@@ -9,7 +9,7 @@
 #include <vector>
 #include <string>
 #include "PropertyDataType.hpp"
-#include "PlyRead.hpp"
+#include "Parse.hpp"
 namespace oool
 {
 	namespace ply

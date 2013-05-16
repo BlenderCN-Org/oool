@@ -1,27 +1,26 @@
 /*
-  PlyHead.cpp - 
+  Head.cpp - 
 
   author:ncaq
   mail:nyrigadake38@gmail.com
   time:Tue May  7 14:10:48 2013
 */
-#include "PlyHead.hpp"
-#include "PlyRead.hpp"
+#include "Head.hpp"
 
 namespace oool
 {
 	namespace ply
 	{
-		PlyHead::PlyHead(const std::vector<std::string>& input)
+		Head::Head(const std::vector<std::string>& input)
 		{
 			parse(input);
 		}
 
-		PlyHead::~PlyHead()
+		Head::~Head()
 		{
 		}
 
-		void PlyHead::parse(const std::vector<std::string>& input)
+		void Head::parse(const std::vector<std::string>& input)
 		{
 			this->format_ = parseFormat(input);
 		}

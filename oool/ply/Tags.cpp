@@ -1,5 +1,5 @@
 /*
-  PlyTags.cpp - 
+  Tags.cpp - 
 
 
 
@@ -7,17 +7,17 @@
   mail:nyrigadake38@gmail.com
   time:Tue May  7 14:37:30 2013
 */
-#include "PlyTags.hpp"
+#include "Tags.hpp"
 namespace oool
 {
 	namespace ply
 	{
-		PlyTags::PlyTags(const std::vector<std::string>& head,const std::vector<std::string>& data)
+		Tags::Tags(const std::vector<std::string>& head,const std::vector<std::string>& data)
 			:head_(head),data_(data)
 		{
 		}
 
-		PlyTags::~PlyTags()
+		Tags::~Tags()
 		{
 		}
 	}

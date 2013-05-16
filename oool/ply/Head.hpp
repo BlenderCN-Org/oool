@@ -1,5 +1,5 @@
 /*
-  PlyHead.hpp - ヘッダー
+  Head.hpp - ヘッダー
 
   author:ncaq
   mail:nyrigadake38@gmail.com
@@ -13,15 +13,16 @@
 #include <boost/lexical_cast.hpp>
 #include <exception>
 #include "Format.hpp"
+#include "Parse.hpp"
 namespace oool
 {
 	namespace ply
 	{
-		class PlyHead
+		class Head
 		{
 		public:
-			PlyHead(const std::vector<std::string>& input);//Default constructor
-			~PlyHead();//Destructor
+			Head(const std::vector<std::string>& input);//Default constructor
+			~Head();//Destructor
 		private:
 			void parse(const std::vector<std::string>& input);
 

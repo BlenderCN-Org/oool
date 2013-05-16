@@ -12,4 +12,4 @@ SRCS =$(shell ./findcpp.sh)
 
 .PHONY: clean
 clean:
-	rm -rf $(filter-proper-targets $(ls R, .))
+	rm -rf $(filter-proper-targets $(ls R, .)) omakedb omakedb.lock OMakefile.omc OMakeroot.omc

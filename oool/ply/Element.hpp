@@ -9,7 +9,7 @@
 #pragma once
 #include <vector>
 #include <string>
-#include "PlyRead.hpp"
+#include "Parse.hpp"
 #include "Property.hpp"
 namespace oool
 {
