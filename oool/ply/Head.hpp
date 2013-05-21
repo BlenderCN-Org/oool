@@ -25,8 +25,6 @@ namespace oool
 			Head(const std::vector<std::string>& input);//Default constructor
 			~Head();//Destructor
 		private:
-			void parse(const std::vector<std::string>& input);
-
 			Format format_;
 			//std::vector<std::unique_ptr<Element>> elements;
 			std::vector<Element> elements;

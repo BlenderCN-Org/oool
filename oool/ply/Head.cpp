@@ -13,16 +13,11 @@ namespace oool
 	{
 		Head::Head(const std::vector<std::string>& input)
 		{
-			parse(input);
+			this->format_ = parseFormat(input);
 		}
 
 		Head::~Head()
 		{
-		}
-
-		void Head::parse(const std::vector<std::string>& input)
-		{
-			this->format_ = parseFormat(input);
 		}
 	}
 } // oool
