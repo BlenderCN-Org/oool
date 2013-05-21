@@ -79,7 +79,6 @@ namespace oool
 			}
 			return output;
 		}
-
 		
 		std::vector<std::vector<std::string>> killData(const std::vector<std::string>& datainput,const std::vector<unsigned int> range)
 		{

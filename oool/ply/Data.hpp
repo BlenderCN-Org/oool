@@ -9,7 +9,6 @@
 #include <vector>
 #include <string>
 #include "DataDiv.hpp"
-#include "Kill.hpp"
 namespace oool
 {
 	namespace ply
@@ -22,7 +21,6 @@ namespace oool
 			~Data();//Destructor
 		private:
 			std::vector<DataDiv> div_;//vertexとかfaceとか
-
 			const Tags& tags_contact_;//<厳重注意>問い合わせするだけ!!!
 		};
 	}

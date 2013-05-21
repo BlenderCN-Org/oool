@@ -20,6 +20,11 @@ namespace oool
 		Tags::~Tags()
 		{
 		}
+
+		const std::vector<unsigned int> Tags::getRange()const
+		{
+			return head_.getRange();
+		}
 	}
 } // oool
 

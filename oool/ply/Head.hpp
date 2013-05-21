@@ -12,8 +12,6 @@
 #include <boost/regex.hpp>
 #include <boost/lexical_cast.hpp>
 #include <exception>
-#include "Format.hpp"
-#include "Parse.hpp"
 #include "Element.hpp"
 namespace oool
 {
@@ -24,9 +22,10 @@ namespace oool
 		public:
 			Head(const std::vector<std::string>& input);//Default constructor
 			~Head();//Destructor
+			virtual const std::vector<unsigned int> getRange()const;
 		private:
 			const Format format_;
-			std::vector<Element> elements;
+			std::vector<Element> elements_;
 		};
 	}
 } // oool

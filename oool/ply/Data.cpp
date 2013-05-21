@@ -7,6 +7,7 @@
 */
 #include "Data.hpp"
 #include "Tags.hpp"
+#include "Kill.hpp"
 namespace oool
 {
 	namespace ply
@@ -15,6 +16,10 @@ namespace oool
 			:tags_contact_(tags)
 		{
 			auto d = killData(input,tags_contact_.getRange());
+			for(auto& i:d)
+			{
+				div_.push_back(i);
+			}
 		}
 
 		Data::~Data()
