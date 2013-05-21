@@ -35,10 +35,8 @@ namespace oool
 				}
 				throw std::runtime_error("oool error.Is ply file as ply file?This program can't found end_header.");
 			}
-			std::vector<std::string> head;
-			std::copy(ply.begin()	,state		,std::back_inserter(head));
-			std::vector<std::string> data;
-			std::copy(state		,ply.end()	,std::back_inserter(data));
+			std::vector<std::string> head(ply.begin(),state);
+			std::vector<std::string> data(state,ply.end());
 			return Tags(head,data);//うーん効率悪い
 		}
 
@@ -80,8 +78,16 @@ namespace oool
 			return output;
 		}
 		
-		std::vector<std::vector<std::string>> killData(const std::vector<std::string>& datainput,const std::vector<unsigned int> range)
+		std::vector<std::vector<std::string>> killData(const std::vector<std::string>& datainput,const std::vector<unsigned int>& range)
 		{
+			std::vector<std::vector<std::string>> output;
+			unsigned int left = 0;
+			for(unsigned int r:range)
+			{
+				output.push_back(std::vector<std::string>(datainput.begin()+left,datainput.begin()+left+r));
+				left += r+1;
+			}
+			return output;
 		}
 	}
 } // oool

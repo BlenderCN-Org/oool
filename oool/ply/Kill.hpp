@@ -14,7 +14,7 @@ namespace oool
 		Tags divideHeadData(const std::vector<std::string>& ply);//ヘッダとデータを分ける
 		std::vector<std::vector<std::string>> killElements(const std::vector<std::string>& input);//Emacs的な意味のkill
 		std::vector<std::string> killProperty(const std::vector<std::string>& input);
-		std::vector<std::vector<std::string>> killData(const std::vector<std::string>& datainput,const std::vector<unsigned int> range);
+		std::vector<std::vector<std::string>> killData(const std::vector<std::string>& datainput,const std::vector<unsigned int>& range);//Dataの区分けわかりやすく書いてくれればやりやすかったのに
 	}
 } // oool
 
