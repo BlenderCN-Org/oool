@@ -19,6 +19,8 @@ namespace oool
 		public:
 			Tags(const std::vector<std::string>& head,const std::vector<std::string>& data);//Default constructor
 			~Tags();//Destructor
+
+			int std::vector<unsigned int> getRange()const;
 		private:
 			Head head_;
 			Data data_;

@@ -13,7 +13,7 @@ namespace oool
 	namespace ply
 	{
 		Tags::Tags(const std::vector<std::string>& head,const std::vector<std::string>& data)
-			:head_(head),data_(data)
+			:head_(head),data_(data,*this)
 		{
 		}
 
