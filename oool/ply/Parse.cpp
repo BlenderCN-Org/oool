@@ -64,6 +64,18 @@ namespace oool
 			return toEnd(input,boost::regex("^\\w+ \\w+ "));
 		}
 
+		std::vector<double> parseGLNumber(const std::string& input)
+		{
+			std::vector<std::string> buf;
+			boost::algorithm::split(buf,input,boost::is_any_of(" "));
+			std::vector<double> output;
+			for(auto& i:buf)
+			{
+				output.push_back(boost::lexical_cast<double>(i));
+			}
+			return output;
+		}
+
 		const boost::regex FLOAT("^property float$");
 		const boost::regex UCHAR("^property uchar$");
 		const boost::regex INT  ("^property int$");

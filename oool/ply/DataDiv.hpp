@@ -8,6 +8,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include "GLType.hpp"
 namespace oool
 {
 	namespace ply
@@ -17,6 +18,8 @@ namespace oool
 		public:
 			DataDiv(const std::vector<std::string>& input);//Default constructor
 			~DataDiv();//Destructor
+		private:
+			GLType member_;//名前が厳しくなってきた
 		};
 	}
 } // oool
