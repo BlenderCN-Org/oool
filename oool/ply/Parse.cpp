@@ -44,14 +44,24 @@ namespace oool
 			throw std::runtime_error("oool can't found num");
 		}
 
-		const boost::regex NAME("^\\w+ \\w+ ");
-		std::string parseName(const std::string& input)
+		std::string toEnd(const std::string& from,const boost::regex& r)
 		{
 			boost::smatch m;
-			boost::regex_search(input,m,NAME);
+			boost::regex_search(from,m,r);
 			int left = m.position() + m.length();
-			std::string n = input.substr(left,input.size());
+			std::string n = from.substr(left,from.size());
 			return n;
+		}
+		
+		std::string parseElementName(const std::string& input)
+		{
+			return toEnd(input,boost::regex("^\\w+ "));
+		}
+		
+		const boost::regex NAME();
+		std::string parsePropertyName(const std::string& input)
+		{
+			return toEnd(input,boost::regex("^\\w+ \\w+ "));
 		}
 
 		const boost::regex FLOAT("^property float$");

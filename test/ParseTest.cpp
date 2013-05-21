@@ -31,10 +31,10 @@ namespace
 		BOOST_CHECK_EQUAL(oool::ply::parseNum(str2),32);
 	}
 
-	BOOST_AUTO_TEST_CASE(parseName)
+	BOOST_AUTO_TEST_CASE(parsePropertyName)
 	{
 		std::string pro("property float x");
-		BOOST_CHECK_EQUAL(oool::ply::parseName(pro),"x");
+		BOOST_CHECK_EQUAL(oool::ply::parsePropertyName(pro),"x");
 	}
 
 	BOOST_AUTO_TEST_SUITE_END()

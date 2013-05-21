@@ -11,9 +11,8 @@ namespace oool
 	namespace ply
 	{
 		Property::Property(const std::string& input)
-			:type_(stringToDataType(input)),name_(parseName(input))
+			:type_(stringToDataType(input)),name_(parsePropertyName(input))
 		{
-			
 		}
 
 		Property::~Property()
