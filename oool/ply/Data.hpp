@@ -8,6 +8,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include "DataDiv.hpp"
 namespace oool
 {
 	namespace ply
@@ -17,6 +18,8 @@ namespace oool
 		public:
 			Data(const std::vector<std::string>& input);//Default constructor
 			~Data();//Destructor
+		private:
+			std::vector<DataDiv> div_;//vertexとかfaceとか
 		};
 	}
 } // oool

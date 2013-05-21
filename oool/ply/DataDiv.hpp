@@ -1,15 +1,13 @@
 /*
-  DataDiv.hpp - データ要素
+  DataDiv.hpp - vertexとかfaceとかの奴別れてないから分けるため
 
-  author:ncaq
+  author:
   mail:nyrigadake38@gmail.com
-  time:Thu May  9 13:47:44 2013
+  time:Tue May 21 04:27:06 2013
 */
 #pragma once
 #include <vector>
-#include <memory>
-#include "Element.hpp"
-#include "Kill.hpp"
+#include <string>
 namespace oool
 {
 	namespace ply
@@ -19,8 +17,6 @@ namespace oool
 		public:
 			DataDiv(const std::vector<std::string>& input);//Default constructor
 			~DataDiv();//Destructor
-		private:
-			std::vector<std::unique_ptr<Element>> elements;//多態性
 		};
 	}
 } // oool

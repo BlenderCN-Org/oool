@@ -6,6 +6,8 @@
   time:Tue May  7 13:39:04 2013
 */
 #include "Model.hpp"
+#include "Read.hpp"
+#include "Kill.hpp"
 namespace oool
 {
 	namespace ply

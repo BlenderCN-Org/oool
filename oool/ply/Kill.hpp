@@ -10,7 +10,7 @@ namespace oool
 {
 	namespace ply
 	{
-		std::vector<std::string> deleteCommentAndWhite(const std::vector<std::string>& input);//文字列のリストからコメントと空行を削除する		
+		std::vector<std::string> deleteCommentAndWhite(const std::vector<std::string>& input);//文字列のリストからコメントと空行を削除する
 		Tags divideHeadData(const std::vector<std::string>& ply);//ヘッダとデータを分ける
 		std::vector<std::vector<std::string>> killElements(const std::vector<std::string>& input);//Emacs的な意味のkill
 		std::vector<std::string> killProperty(const std::vector<std::string>& input);

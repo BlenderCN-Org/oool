@@ -25,8 +25,7 @@ namespace oool
 			Head(const std::vector<std::string>& input);//Default constructor
 			~Head();//Destructor
 		private:
-			Format format_;
-			//std::vector<std::unique_ptr<Element>> elements;
+			const Format format_;
 			std::vector<Element> elements;
 		};
 	}

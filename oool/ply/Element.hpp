@@ -22,9 +22,11 @@ namespace oool
 			virtual ~Element();//Destructor
 
 			virtual int numCount()const;//"vertex 21" -> "21"
+			virtual std::string getName()const;
 			virtual int propertyCount()const;//propertyの数
 		private:
 			const int num_;
+			const std::string name_;
 			std::vector<Property> property_;
 		};
 	}

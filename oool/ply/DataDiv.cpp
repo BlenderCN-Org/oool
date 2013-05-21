@@ -3,7 +3,7 @@
 
   author:
   mail:nyrigadake38@gmail.com
-  time:Wed May 15 04:03:23 2013
+  time:Tue May 21 04:27:44 2013
 */
 #include "DataDiv.hpp"
 namespace oool
@@ -12,7 +12,6 @@ namespace oool
 	{
 		DataDiv::DataDiv(const std::vector<std::string>& input)
 		{
-			auto v = killElements(input);
 		}
 
 		DataDiv::~DataDiv()

@@ -11,6 +11,7 @@ namespace oool
 	namespace ply
 	{
 		Data::Data(const std::vector<std::string>& input)
+			:div_(killData(input))
 		{
 		}
 

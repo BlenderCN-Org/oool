@@ -11,7 +11,7 @@ namespace oool
 	namespace ply
 	{
 		Element::Element(const std::vector<std::string>& input)
-			:num_(parseNum(input))
+			:num_(parseNum(input)),name_(parseElementName(input.at(0)))
 		{
 		}
 		
@@ -24,6 +24,10 @@ namespace oool
 			return this->num_;
 		}
 		
+		std::string Element::getName()const
+		{
+			return this->name_;
+		}
 		int Element::propertyCount()const
 		{
 			return this->property_.size();

@@ -10,8 +10,6 @@
 #include <string>
 #include <memory>
 #include "Tags.hpp"
-#include "Read.hpp"
-#include "Kill.hpp"
 namespace oool
 {
 	namespace ply
@@ -25,7 +23,7 @@ namespace oool
 			virtual void draw();
 		private:
 			const std::string filename_;
-			Tags plytags_;
+			const Tags plytags_;
 		};
 	}
 } // oool
