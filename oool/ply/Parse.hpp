@@ -8,7 +8,6 @@
 #include <boost/algorithm/string.hpp>
 #include <boost/lexical_cast.hpp>
 #include "Format.hpp"
-#include "PropertyDataType.hpp"
 namespace oool
 {
 	namespace ply
@@ -18,9 +17,8 @@ namespace oool
 		std::string toEnd(const std::string& from,const boost::regex& r);//マッチしたところの次から最後までを返す
 		std::string parseElementName(const std::string& input);//"vertex 24"::std::string -> "vertex"::std::string
 		std::string parsePropertyName(const std::string& input);//"property float x"::std::string -> "x"::std::string
+		std::string parsePropertyType(const std::string& input);//
 		std::vector<double> parseGLNumber(const std::string& input);//"0 0 0"::std::string -> (0,0,0)::std::vector<double>
-
-		PropertyDataType stringToDataType(const std::string& input);//列挙体返す
 	}
 } // oool
 

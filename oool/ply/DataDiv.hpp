@@ -9,11 +9,11 @@
 #include <vector>
 #include <string>
 #include <memory>
-#include "GLType.hpp"
 namespace oool
 {
 	namespace ply
 	{
+		class GLType;
 		class DataDiv
 		{
 		public:

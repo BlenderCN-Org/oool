@@ -6,6 +6,7 @@
   time:Tue May 21 04:27:44 2013
 */
 #include "DataDiv.hpp"
+#include "GLType.hpp"
 namespace oool
 {
 	namespace ply

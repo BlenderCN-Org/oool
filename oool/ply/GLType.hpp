@@ -12,6 +12,8 @@ namespace oool
 		public:
 			GLType();//Default constructor
 			virtual ~GLType()=0;//Destructor
+
+			virtual void glAction()=0;//glVertex3d,glNormal3d,そういう動作をする.
 		};
 	};
 } // oool

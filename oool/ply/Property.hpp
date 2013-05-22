@@ -8,8 +8,6 @@
 #pragma once
 #include <vector>
 #include <string>
-#include "PropertyDataType.hpp"
-#include "Parse.hpp"
 namespace oool
 {
 	namespace ply
@@ -19,10 +17,10 @@ namespace oool
 		public:
 			Property(const std::string& input);
 			virtual ~Property();//Destructor
-			virtual PropertyDataType getPropertyDataType()const;
+			virtual std::string getPropertyDataType()const;
 			virtual std::string getName()const;
 		private:
-			const PropertyDataType type_;
+			const std::string type_;
 			const std::string name_;
 		};
 	}

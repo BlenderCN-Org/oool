@@ -13,6 +13,7 @@
 #include <boost/lexical_cast.hpp>
 #include <exception>
 #include "Element.hpp"
+#include "Format.hpp"
 namespace oool
 {
 	namespace ply

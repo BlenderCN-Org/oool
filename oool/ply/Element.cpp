@@ -6,6 +6,7 @@
   time:Thu May  9 13:52:20 2013
 */
 #include "Element.hpp"
+#include "Parse.hpp"
 namespace oool
 {
 	namespace ply

@@ -58,10 +58,18 @@ namespace oool
 			return toEnd(input,boost::regex("^\\w+ "));
 		}
 		
-		const boost::regex NAME();
 		std::string parsePropertyName(const std::string& input)
 		{
 			return toEnd(input,boost::regex("^\\w+ \\w+ "));
+		}
+
+		const boost::regex TYPE_LEFT("^\\w+ ");
+		std::string parsePropertyType(const std::string& input)
+		{
+			boost::smatch m;
+			
+			boost::regex_search(input,m,TYPE_LEFT);
+			return std::string("h");
 		}
 
 		std::vector<double> parseGLNumber(const std::string& input)
@@ -76,25 +84,6 @@ namespace oool
 			return output;
 		}
 
-		const boost::regex FLOAT("^property float$");
-		const boost::regex UCHAR("^property uchar$");
-		const boost::regex INT  ("^property int$");
-		PropertyDataType stringToDataType(const std::string& input)
-		{
-			if(boost::regex_match(input,FLOAT))
-			{
-				return PropertyDataType::FLOAT;
-			}
-			if(boost::regex_match(input,UCHAR))
-			{
-				return PropertyDataType::UCHAR;
-			}
-			if(boost::regex_match(input,INT))
-			{
-				return PropertyDataType::INT;
-			}
-			throw std::runtime_error("oool this ply file not support!");
-		}
 	}
 } // oool
 
