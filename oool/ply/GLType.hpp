@@ -11,7 +11,7 @@ namespace oool
 		{
 		public:
 			GLType();//Default constructor
-			virtual ~GLType();//Destructor
+			virtual ~GLType()=0;//Destructor
 		};
 	};
 } // oool

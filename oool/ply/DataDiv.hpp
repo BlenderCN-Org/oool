@@ -8,6 +8,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <memory>
 #include "GLType.hpp"
 namespace oool
 {
@@ -19,7 +20,7 @@ namespace oool
 			DataDiv(const std::vector<std::string>& input);//Default constructor
 			~DataDiv();//Destructor
 		private:
-			GLType member_;//名前が厳しくなってきた
+			std::shared_ptr<GLType> member_;//名前が厳しくなってきた,それにここにきてメモリリークの危険性があるshared_ptrを使ってしまう
 		};
 	}
 } // oool

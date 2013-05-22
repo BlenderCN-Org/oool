@@ -17,13 +17,13 @@ namespace oool
 		class Tags
 		{
 		public:
-			Tags(const std::vector<std::string>& head,const std::vector<std::string>& data);//Default constructor
+			Tags(const std::vector<std::string>& input);//Default constructor
 			~Tags();//Destructor
 
 			virtual const std::vector<unsigned int> getRange()const;
 		private:
-			Head head_;
-			Data data_;
+			const Head head_;
+			const Data data_;
 		};
 	}
 } // oool

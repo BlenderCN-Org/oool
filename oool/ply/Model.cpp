@@ -13,7 +13,7 @@ namespace oool
 	namespace ply
 	{
 		Model::Model(const std::string& filename)
-			:filename_(filename),plytags_(divideHeadData(readLine(readFile(filename))))
+			:filename_(filename),plytags_(readLine(readFile(filename)))
 		{
 		}
 

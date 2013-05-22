@@ -23,7 +23,7 @@ namespace oool
 		}
 		
 		const std::string END_HEADER("end_header");
-		oool::ply::Tags divideHeadData(const std::vector<std::string>& ply)
+		std::pair<std::vector<std::string>,std::vector<std::string>> divideHeadData(const std::vector<std::string>& ply)
 		{
 			auto state = find(ply.begin(),ply.end(),END_HEADER);
 			if(state == ply.end())
@@ -37,7 +37,7 @@ namespace oool
 			}
 			std::vector<std::string> head(ply.begin(),state);
 			std::vector<std::string> data(state,ply.end());
-			return Tags(head,data);//うーん効率悪い
+			return make_pair(head,data);
 		}
 
 		const boost::regex ELEMENT("^element.*");
