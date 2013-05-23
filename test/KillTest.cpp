@@ -23,7 +23,7 @@ namespace
 
 	BOOST_AUTO_TEST_CASE(divideHeadData)
 	{
-	       auto e(oool::ply::divideHeadData(oool::ply::readLine(oool::ply::readFile("../testmodel/cube.ply"))));
+		auto e(oool::ply::divideHeadData(oool::ply::readLine(oool::ply::readFile("./testmodel/cube.ply"))));//パスは実行ファイル基準となる
 	}
 
 	BOOST_AUTO_TEST_SUITE_END()
