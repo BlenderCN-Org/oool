@@ -17,7 +17,7 @@ namespace oool
 		std::string toEnd(const std::string& from,const boost::regex& r);//マッチしたところの次から最後までを返す
 		std::string parseElementName(const std::string& input);//"vertex 24"::std::string -> "vertex"::std::string
 		std::string parsePropertyName(const std::string& input);//"property float x"::std::string -> "x"::std::string
-		std::string parsePropertyType(const std::string& input);//
+		std::string parsePropertyType(const std::string& input);//"property float x"::std::string -> "float"::std::string
 		std::vector<double> parseGLNumber(const std::string& input);//"0 0 0"::std::string -> (0,0,0)::std::vector<double>
 	}
 } // oool

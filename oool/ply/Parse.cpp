@@ -63,13 +63,12 @@ namespace oool
 			return toEnd(input,boost::regex("^\\w+ \\w+ "));
 		}
 
-		const boost::regex TYPE_LEFT("^\\w+ ");
+		const boost::regex TYPE_POS("(?<=\\s)\\w+(?=\\s)");
 		std::string parsePropertyType(const std::string& input)
 		{
 			boost::smatch m;
-			
-			boost::regex_search(input,m,TYPE_LEFT);
-			return std::string("h");
+			boost::regex_search(input,m,TYPE_POS);
+			return m.str();
 		}
 
 		std::vector<double> parseGLNumber(const std::string& input)

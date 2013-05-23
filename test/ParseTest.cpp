@@ -37,5 +37,11 @@ namespace
 		BOOST_CHECK_EQUAL(oool::ply::parsePropertyName(pro),"x");
 	}
 
+	BOOST_AUTO_TEST_CASE(parsePropertyType)
+	{
+		std::string text("property float x");
+		BOOST_CHECK_EQUAL(oool::ply::parsePropertyType(text),"float");
+	}
+
 	BOOST_AUTO_TEST_SUITE_END()
 }
